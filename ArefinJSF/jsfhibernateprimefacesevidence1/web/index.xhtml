@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <br />
+        <h:form>
+            <h:panelGrid columns="2">
+                <p:outputLabel value="Name: "/>
+                <p:inputText value="#{studentBean.student.name}"/>
+                
+                <p:outputLabel value="Gender: "/>
+                <p:selectOneRadio value="#{studentBean.student.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                </p:selectOneRadio>
+                
+                <p:outputLabel value="Courses: "/>
+                <p:selectManyCheckbox value="#{studentBean.completedCourses}">
+                    <f:selectItem itemLabel="SSC" itemValue="SSC"/>
+                    <f:selectItem itemLabel="HSC" itemValue="HSC"/>
+                    <f:selectItem itemLabel="BBA" itemValue="BBA"/>
+                </p:selectManyCheckbox>
+                
+                <p:outputLabel value="Round: "/>
+                <p:selectOneMenu value="#{studentBean.student.round}">
+                    <f:selectItem itemLabel="Round-36" itemValue="Round-36"/>
+                    <f:selectItem itemLabel="Round-37" itemValue="Round-37"/>
+                    <f:selectItem itemLabel="Round-38" itemValue="Round-38"/>
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Message: "/>
+                <p:inputTextarea rows="3" cols="5" value="#{studentBean.student.msg}"/>
+            </h:panelGrid>
+            <p:commandButton action="#{studentBean.save()}" value="Insert"/>
+        </h:form>
+        <h:form>
+            <p:dataTable var="r" value="#{studentBean.list}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{r.id}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{r.name}"/>
+                </p:column>
+                <p:column headerText="Gender">
+                    <h:outputText value="#{r.gender}"/>
+                </p:column>
+                <p:column headerText="Courses">
+                    <h:outputText value="#{r.courses}"/>
+                </p:column>
+                <p:column headerText="Round">
+                    <h:outputText value="#{r.round}"/>
+                </p:column>
+                <p:column headerText="Message">
+                    <h:outputText value="#{r.msg}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

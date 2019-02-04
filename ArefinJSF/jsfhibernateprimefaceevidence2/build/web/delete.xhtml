@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                <p:outputLabel value="ID: "/>
+                <p:inputText value="#{studentBean.student.id}"/>
+                
+            </h:panelGrid>
+            <p:commandButton action="#{studentBean.delete()}" value="Delete"/>
+        </h:form>
+        <h:form>
+            <p:dataTable var="r" value="#{studentBean.list}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{r.id}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{r.name}"/>
+                </p:column>
+                <p:column headerText="Gender">
+                    <h:outputText value="#{r.gender}"/>
+                </p:column>
+                <p:column headerText="courses">
+                    <h:outputText value="#{r.courses}"/>
+                </p:column>
+                <p:column headerText="Round">
+                    <h:outputText value="#{r.round}"/>
+                </p:column>
+                <p:column headerText="Message">
+                    <h:outputText value="#{r.msg}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SalesCreateDlg" widgetVar="SalesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSalesTitle}">
+            <h:form id="SalesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{salesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{salesController.selected.id}" title="#{bundle.CreateSalesTitle_id}" required="true" requiredMessage="#{bundle.CreateSalesRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_perUnitSalesPrice}" for="perUnitSalesPrice" />
+                        <p:inputText id="perUnitSalesPrice" value="#{salesController.selected.perUnitSalesPrice}" title="#{bundle.CreateSalesTitle_perUnitSalesPrice}" />
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_productCode}" for="productCode" />
+                        <p:inputText id="productCode" value="#{salesController.selected.productCode}" title="#{bundle.CreateSalesTitle_productCode}" />
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_productName}" for="productName" />
+                        <p:inputText id="productName" value="#{salesController.selected.productName}" title="#{bundle.CreateSalesTitle_productName}" />
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_salesDate}" for="salesDate" />
+                        <p:calendar id="salesDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{salesController.selected.salesDate}" title="#{bundle.EditSalesTitle_salesDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateSalesLabel_cropsId}" for="cropsId" />
+                        <p:inputText id="cropsId" value="#{salesController.selected.cropsId}" title="#{bundle.CreateSalesTitle_cropsId}" required="true" requiredMessage="#{bundle.CreateSalesRequiredMessage_cropsId}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{salesController.create}" value="#{bundle.Save}" update="display,:SalesListForm:datalist,:growl" oncomplete="handleSubmit(args,'SalesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SalesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

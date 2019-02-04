@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+                    <h:form>
+                    <p:growl id="msgs" showDetail="true" />
+                    <p:panel id="simple" header="Primefaces" footer="The Cookbook" closable="true" toggleable="true" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom: 20px">
+                        <p:ajax event="close" listener="#{panelBean.onClose}" update="msgs"/>
+                        <p:ajax event="toggle" listener="#{panelBean.onToggle}" update="msgs"/>
+                        <h:outputText value="open source primeface is the leading jsf component suit in the industry, which is adopted widely and being used in production ready projects around the globe."/>
+                        <f:facet name="options">
+                            <p:menu>
+                                <p:submenu label="Settigs">
+                                    <p:menuitem value="Toggle" url="#" icon="pi pi-clone" onclick="PF('panel').toggle()"/>
+                                    <p:menuitem value="Remove" url="#" icon="pi pi-times" onclick="PF('panel').close()"/>
+                                </p:submenu>
+                            </p:menu>
+                        </f:facet>
+                    </p:panel><br/>
+                    <p:panel id="closeableToggleable" header="Primefaces" footer="The Cookbook">
+                        <h:outputText value="open source primeface is the leading jsf component suit in the industry, which is adopted widely and being used in production ready projects around the globe."/>
+                    </p:panel>
+                    </h:form>
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

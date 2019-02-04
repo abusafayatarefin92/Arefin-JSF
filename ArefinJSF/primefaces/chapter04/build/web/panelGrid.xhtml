@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+                    <h:form>
+                        <p:panelGrid style="margin-top: 20px">
+                            <f:facet name="header">
+                                <p:row>
+                                    <p:column colspan="7">1995-96 NBA Playoffs</p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="2">Conf. Semifinals</p:column>
+                                    <p:column colspan="2">Conf. Finals</p:column>
+                                    <p:column colspan="2">NBA. Finals</p:column>
+                                    <p:column>Champion</p:column>
+                                </p:row>
+                            </f:facet>
+                            <p:row>
+                                <p:column style="font-weight: bold;">Seattle</p:column>
+                                <p:column style="font-weight: bold;">4</p:column>
+                                
+                                <p:column rowspan="2" style="font-weight: bold;">Seattle</p:column>
+                                <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+                                
+                                <p:column rowspan="5">Seattle</p:column>
+                                <p:column rowspan="5">2</p:column>
+                                
+                                <p:column rowspan="11" style="font-weight: bold;">Chicago</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column>Huston</p:column>
+                                <p:column>0</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column style="font-weight: bold;">Utah</p:column>
+                                <p:column style="font-weight: bold;">4</p:column>
+                                
+                                <p:column rowspan="2">Utah</p:column>
+                                <p:column rowspan="2">3</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column>San Antio</p:column>
+                                <p:column>2</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column colspan="6" styleClass="ui-widget-header">
+                                    <p:spacer height="0"/>
+                                </p:column>
+                                
+                            </p:row>
+                            <p:row>
+                                <p:column style="font-weight: bold;">Chicago</p:column>
+                                <p:column style="font-weight: bold;">4</p:column>
+                                
+                                <p:column rowspan="2" style="font-weight: bold;">Chicago</p:column>
+                                <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+                                
+                                <p:column rowspan="5" style="font-weight: bold;">Chicago</p:column>
+                                <p:column rowspan="5" style="font-weight: bold;">4</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column>New Work</p:column>
+                                <p:column>1</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column colspan="4" styleClass="ui-widget-header">
+                                    <p:spacer height="0"/>
+                                </p:column>
+                                
+                            </p:row>
+                            <p:row>
+                                <p:column>Atlanta</p:column>
+                                <p:column>1</p:column>
+                                
+                                <p:column rowspan="2">Orlando</p:column>
+                                <p:column rowspan="2">4</p:column>
+                            </p:row>
+                            <p:row>
+                                <p:column style="font-weight: bold;">Orlando</p:column>
+                                <p:column style="font-weight: bold;">4</p:column>
+                            </p:row>
+                            <f:facet name="footer">
+                                <p:row>
+                                    <p:column colspan="4" style="text-align: right">
+                                        Finals MVP
+                                    </p:column>
+                                    <p:column colspan="3" rowspan="3">
+                                        Michel Jordan (Chicago)
+                                    </p:column>
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="4" style="text-align: right">
+                                        Season MVP
+                                    </p:column>
+                                    
+                                </p:row>
+                                <p:row>
+                                    <p:column colspan="4" style="text-align: right">
+                                        Top Scorer
+                                    </p:column>
+                                    
+                                </p:row>
+                            </f:facet>
+                        </p:panelGrid>
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

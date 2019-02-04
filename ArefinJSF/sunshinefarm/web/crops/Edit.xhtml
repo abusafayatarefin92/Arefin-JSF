@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CropsEditDlg" widgetVar="CropsEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCropsTitle}">
+            <h:form id="CropsEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cropsController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCropsLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{cropsController.selected.id}" title="#{bundle.EditCropsTitle_id}" required="true" requiredMessage="#{bundle.EditCropsRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditCropsLabel_duration}" for="duration" />
+                        <p:inputText id="duration" value="#{cropsController.selected.duration}" title="#{bundle.EditCropsTitle_duration}" />
+                        <p:outputLabel value="#{bundle.EditCropsLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{cropsController.selected.name}" title="#{bundle.EditCropsTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditCropsLabel_perUnitSellingPrice}" for="perUnitSellingPrice" />
+                        <p:inputText id="perUnitSellingPrice" value="#{cropsController.selected.perUnitSellingPrice}" title="#{bundle.EditCropsTitle_perUnitSellingPrice}" />
+                        <p:outputLabel value="#{bundle.EditCropsLabel_productCode}" for="productCode" />
+                        <p:inputText id="productCode" value="#{cropsController.selected.productCode}" title="#{bundle.EditCropsTitle_productCode}" />
+                        <p:outputLabel value="#{bundle.EditCropsLabel_quantity}" for="quantity" />
+                        <p:inputText id="quantity" value="#{cropsController.selected.quantity}" title="#{bundle.EditCropsTitle_quantity}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cropsController.update}" value="#{bundle.Save}" update="display,:CropsListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CropsEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CropsEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

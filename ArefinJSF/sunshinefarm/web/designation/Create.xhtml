@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DesignationCreateDlg" widgetVar="DesignationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDesignationTitle}">
+            <h:form id="DesignationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{designationController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDesignationLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{designationController.selected.id}" title="#{bundle.CreateDesignationTitle_id}" required="true" requiredMessage="#{bundle.CreateDesignationRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateDesignationLabel_designationName}" for="designationName" />
+                        <p:inputText id="designationName" value="#{designationController.selected.designationName}" title="#{bundle.CreateDesignationTitle_designationName}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{designationController.create}" value="#{bundle.Save}" update="display,:DesignationListForm:datalist,:growl" oncomplete="handleSubmit(args,'DesignationCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DesignationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form style="margin: 0 auto; background-color: #ffffcc;">
+            <h:panelGrid columns="3">
+                <p:outputLabel value="Name: "/>
+                <p:inputText id="name" required="true" requiredMessage="Enter your name" value="#{studentBean.student.name}"/>
+                <p:message for="name"/>
+                
+                <p:outputLabel value="Gender: "/>
+                <p:selectOneRadio id="gender" required="true" requiredMessage="Select your gender" value="#{studentBean.student.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                </p:selectOneRadio>
+                <p:message for="gender"/>
+                
+                <p:outputLabel value="Courses: "/>
+                <p:selectManyCheckbox id="courses" required="true" requiredMessage="Select your courses" value="#{studentBean.completedCourses}">
+                    <f:selectItem itemLabel="SSC" itemValue="SSC"/>
+                    <f:selectItem itemLabel="HSC" itemValue="HSC"/>
+                    <f:selectItem itemLabel="BBA" itemValue="BBA"/>
+                </p:selectManyCheckbox>
+                <p:message for="courses"/>
+                
+                <p:outputLabel value="Round: "/>
+                <p:selectOneMenu id="round" required="true" requiredMessage="Select your round" value="#{studentBean.student.round}">
+                    <f:selectItem itemLabel="Round-36" itemValue="Round-36"/>
+                    <f:selectItem itemLabel="Round-37" itemValue="Round-37"/>
+                    <f:selectItem itemLabel="Round-38" itemValue="Round-38"/>
+                </p:selectOneMenu>
+                <p:message for="round"/>
+                
+                <p:outputLabel value="Message "/>
+                <p:inputTextarea rows="2" cols="10" id="msg" required="true" requiredMessage="Enter Message" value="#{studentBean.student.msg}"/>
+                <p:message for="msg"/>
+            </h:panelGrid>
+            <p:commandButton action="#{studentBean.save()}" value="Insert"/>
+        </h:form>
+        <h:form>
+            <p:dataTable var="d" value="#{studentBean.list}">
+                <p:column headerText="ID">
+                    <h:outputText value="#{d.id}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{d.name}"/>
+                </p:column>
+                <p:column headerText="Gender">
+                    <h:outputText value="#{d.gender}"/>
+                </p:column>
+                <p:column headerText="Courses">
+                    <h:outputText value="#{d.courses}"/>
+                </p:column>
+                <p:column headerText="Round">
+                    <h:outputText value="#{d.round}"/>
+                </p:column>
+                <p:column headerText="Message">
+                    <h:outputText value="#{d.msg}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

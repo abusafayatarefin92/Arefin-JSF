@@ -1,0 +1,11 @@
+Data access in web-application using hibernate:
+cfg-config
+Hibernateutil
+CommonDAO
+CommonService
+Entity + add entity to cfg file
+StudentDAO
+StudentSevice
+data test
+ManagedBean
+View

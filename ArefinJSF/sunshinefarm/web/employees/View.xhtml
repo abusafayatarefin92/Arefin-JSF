@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EmployeesViewDlg" widgetVar="EmployeesViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEmployeesTitle}">
+            <h:form id="EmployeesViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{employeesController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_id}"/>
+                        <h:outputText value="#{employeesController.selected.id}" title="#{bundle.ViewEmployeesTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_firstName}"/>
+                        <h:outputText value="#{employeesController.selected.firstName}" title="#{bundle.ViewEmployeesTitle_firstName}"/>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_lastName}"/>
+                        <h:outputText value="#{employeesController.selected.lastName}" title="#{bundle.ViewEmployeesTitle_lastName}"/>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_mobile}"/>
+                        <h:outputText value="#{employeesController.selected.mobile}" title="#{bundle.ViewEmployeesTitle_mobile}"/>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_monthlySalary}"/>
+                        <h:outputText value="#{employeesController.selected.monthlySalary}" title="#{bundle.ViewEmployeesTitle_monthlySalary}"/>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_startingDate}"/>
+                        <h:outputText value="#{employeesController.selected.startingDate}" title="#{bundle.ViewEmployeesTitle_startingDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEmployeesLabel_designationId}"/>
+                        <h:outputText value="#{employeesController.selected.designationId}" title="#{bundle.ViewEmployeesTitle_designationId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EmployeesViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <h:form>
+            ID: <h:inputText value="#{studentBean.student.id}"/><br/>
+            Name: <h:inputText value="#{studentBean.student.name}"/><br/>
+            Gender: 
+            <h:selectOneRadio value="#{studentBean.student.gender}">
+                <f:selectItem itemLabel="male" itemValue="male"/>
+                <f:selectItem itemLabel="female" itemValue="female"/>
+            </h:selectOneRadio><br/>
+            Courses: 
+            <h:selectManyCheckbox value="#{studentBean.completedCourse}">
+                <f:selectItem itemLabel="ssc" itemValue="ssc"/>
+                <f:selectItem itemLabel="hsc" itemValue="hsc"/>
+                <f:selectItem itemLabel="bba" itemValue="bba"/>
+            </h:selectManyCheckbox><br/>
+            Round:
+            <h:selectOneMenu value="#{studentBean.student.round}">
+                <f:selectItem itemLabel="Round-36" itemValue="Round-36"/>
+                <f:selectItem itemLabel="Round-37" itemValue="Round-37"/>
+                <f:selectItem itemLabel="Round-38" itemValue="Round-38"/>
+            </h:selectOneMenu><br/>
+            <h:commandButton action="#{studentBean.edit()}" value="Edit"/>
+        </h:form>
+    </h:body>
+</html>

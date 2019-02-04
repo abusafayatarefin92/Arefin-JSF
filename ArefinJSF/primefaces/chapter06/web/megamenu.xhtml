@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces
+                    <h:form id="form">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="orientation" value="Orientation:"/>
+                            <p:selectOneButton id="orientation" value="#{megaMenuView.orientation}" onchange="$('#form').submit()">
+                                <f:selectItem itemLabel="Horizontal" itemValue="horizontal"/>
+                                <f:selectItem itemLabel="Vertical" itemValue="vertical"/>
+                            </p:selectOneButton>
+                        </h:panelGrid>
+                    </h:form>
+                    <p:megaMenu style="margin-top: 20px">
+                        <p:submenu label="TV">
+                            <p:column>
+                                <p:submenu label="TV.1">
+                                    <p:menuitem value="TV.1.1" url="#"/>
+                                    <p:menuitem value="TV.1.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="TV.2">
+                                    <p:menuitem value="TV.2.1" url="#"/>
+                                    <p:menuitem value="TV.2.2" url="#"/>
+                                    <p:menuitem value="TV.2.3" url="#"/>
+                                </p:submenu>
+                            </p:column>
+                            <p:column>
+                                <p:submenu label="TV.4">
+                                    <p:menuitem value="TV.4.1" url="#"/>
+                                    <p:menuitem value="TV.4.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="TV.5">
+                                    <p:menuitem value="TV.5.1" url="#"/>
+                                    <p:menuitem value="TV.5.2" url="#"/>
+                                    <p:menuitem value="TV.5.3" url="#"/>
+                                </p:submenu>
+                            </p:column>
+
+                        </p:submenu>
+                        <p:submenu label="Sports" >
+                            <p:column>
+                                <p:submenu label="Sports.1">
+                                    <p:menuitem value="Sports.1.1" url="#"/>
+                                    <p:menuitem value="Sports.1.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="Sports.2">
+                                    <p:menuitem value="Sports.2.1" url="#"/>
+                                    <p:menuitem value="Sports.2.2" url="#"/>
+                                    <p:menuitem value="Sports.2.3" url="#"/>
+                                </p:submenu>
+                            </p:column>
+                            <p:column>
+                                <p:submenu label="Sports.4">
+                                    <p:menuitem value="Sports.4.1" url="#"/>
+                                    <p:menuitem value="Sports.4.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="Sports.5">
+                                    <p:menuitem value="Sports.5.1" url="#"/>
+                                    <p:menuitem value="Sports.5.2" url="#"/>
+                                    <p:menuitem value="Sports.5.3" url="#"/>
+                                </p:submenu>
+
+                            </p:column>
+                            <p:column>
+                                <p:submenu label="Sports.4">
+                                    <p:menuitem value="Sports.7.1" url="#"/>
+                                    <p:menuitem value="Sports.7.2" url="#"/>
+                                </p:submenu>
+
+                            </p:column>
+                        </p:submenu>
+                        <p:submenu label="Entertainment">
+                            <p:column>
+                                <p:submenu label="Entertainment.1">
+                                    <p:menuitem value="Entertainment.1.1" url="#"/>
+                                    <p:menuitem value="Entertainment.1.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="Entertainment.2">
+                                    <p:menuitem value="Entertainment.2.1" url="#"/>
+                                    <p:menuitem value="Entertainment.2.2" url="#"/>
+                                    <p:menuitem value="Entertainment.2.3" url="#"/>
+                                </p:submenu>
+                            </p:column>
+                            <p:column>
+                                <p:submenu label="Entertainment.4">
+                                    <p:menuitem value="Entertainment.4.1" url="#"/>
+                                    <p:menuitem value="Entertainment.4.2" url="#"/>
+                                </p:submenu>
+                                <p:submenu label="Entertainment.5">
+                                    <p:menuitem value="Entertainment.5.1" url="#"/>
+                                    <p:menuitem value="Entertainment.5.2" url="#"/>
+                                    <p:menuitem value="Entertainment.5.3" url="#"/>
+                                </p:submenu>
+                            </p:column>
+
+                        </p:submenu>
+                        <p:submenu label="Tech">
+                            <p:column>
+                                <p:submenu label="Tech.1">
+                                    <p:menuitem value="Tech.1.1" url="#" />
+                                    <p:menuitem value="Tech.1.2" url="#" />
+                                </p:submenu>
+                                <p:submenu label="Tech.2">
+                                    <p:menuitem value="Tech.2.1" url="#" />
+                                    <p:menuitem value="Tech.2.2" url="#" />
+                                    <p:menuitem value="Tech.2.3" url="#" />
+                                </p:submenu>
+                            </p:column>
+
+                            <p:column>
+                                <p:submenu label="Tech.4">
+                                    <p:menuitem value="Tech.4.1" url="#" />
+                                    <p:menuitem value="Tech.4.2" url="#" />
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+                        <p:menuitem value="Quit" url="http://www.primefaces.org"/>
+                    </p:megaMenu>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

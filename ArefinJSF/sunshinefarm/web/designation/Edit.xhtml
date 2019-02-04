@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DesignationEditDlg" widgetVar="DesignationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDesignationTitle}">
+            <h:form id="DesignationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{designationController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDesignationLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{designationController.selected.id}" title="#{bundle.EditDesignationTitle_id}" required="true" requiredMessage="#{bundle.EditDesignationRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditDesignationLabel_designationName}" for="designationName" />
+                        <p:inputText id="designationName" value="#{designationController.selected.designationName}" title="#{bundle.EditDesignationTitle_designationName}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{designationController.update}" value="#{bundle.Save}" update="display,:DesignationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DesignationEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DesignationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
